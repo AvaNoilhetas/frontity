@@ -17,13 +17,13 @@ import List from "./list";
  * @example
  * ```js
  * <Switch>
- *   <Post when={data.isPostType} />
+ *   <Home when={data.isPostType} />
  * </Switch>
  * ```
  *
- * @returns The {@link Post} element rendered.
+ * @returns The {@link Home} element rendered.
  */
-const Post = ({ state, actions, libraries }) => {
+const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
@@ -49,32 +49,15 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
+      HOME
       <div>
-        POST
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-        {/* Hide author and date on pages */}
-        {!data.isPage && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <DateWrapper>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </DateWrapper>
-          </div>
-        )}
+        <img src={post.acf.background.url} alt="" />
       </div>
-
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
         <FeaturedMedia id={post.featured_media} />
       )}
-
       {data.isAttachment ? (
         // If the post is an attachment, just render the description property,
         // which already contains the thumbnail.
@@ -91,7 +74,7 @@ const Post = ({ state, actions, libraries }) => {
   ) : null;
 };
 
-export default connect(Post);
+export default connect(Home);
 
 const Container = styled.div`
   width: 800px;
