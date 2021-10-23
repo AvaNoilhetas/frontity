@@ -19,7 +19,6 @@ import Title from "./title";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-  console.log(data.isPostType);
 
   return (
     <>
@@ -54,10 +53,11 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Noto Sans", sans-serif;
   }
   a,
   a:visited {

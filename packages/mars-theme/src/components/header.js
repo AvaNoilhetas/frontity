@@ -1,19 +1,17 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
-import MobileMenu from "./menu";
-import Nav from "./nav";
 
 const Header = ({ state }) => {
   return (
     <>
-      <Container>
+      {/* <Container>
         <StyledLink link="/">
           <Title>{state.frontity.title}</Title>
         </StyledLink>
         <Description>{state.frontity.description}</Description>
         <MobileMenu />
       </Container>
-      <Nav />
+      <Nav /> */}
     </>
   );
 };

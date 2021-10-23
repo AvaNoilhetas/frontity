@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import FeaturedMedia from "./featured-media";
 import Link from "./link";
 import List from "./list";
+import Nav from "./nav";
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -48,44 +49,47 @@ const Home = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      HOME
-      <div>
+    <>
+      <Nav />
+      <Container
+        style={{ backgroundImage: `url("${post.acf.background.url}")` }}
+      >
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-        <img src={post.acf.background.url} alt="" />
-      </div>
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
-      {data.isAttachment ? (
-        // If the post is an attachment, just render the description property,
-        // which already contains the thumbnail.
-        <div dangerouslySetInnerHTML={{ __html: post.description.rendered }} />
-      ) : (
-        // Render the content using the Html2React component so the HTML is
-        // processed by the processors we included in the
-        // libraries.html2react.processors array.
-        <Content>
-          <Html2React html={post.content.rendered} />
-        </Content>
-      )}
-    </Container>
+
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
+        {data.isAttachment ? (
+          // If the post is an attachment, just render the description property,
+          // which already contains the thumbnail.
+          <div
+            dangerouslySetInnerHTML={{ __html: post.description.rendered }}
+          />
+        ) : (
+          // Render the content using the Html2React component so the HTML is
+          // processed by the processors we included in the
+          // libraries.html2react.processors array.
+          <Content>
+            <Html2React html={post.content.rendered} />
+          </Content>
+        )}
+      </Container>
+    </>
   ) : null;
 };
 
 export default connect(Home);
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  padding: 4em;
 `;
 
 const Title = styled.h1`
   margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
   color: rgba(12, 17, 43);
 `;
 

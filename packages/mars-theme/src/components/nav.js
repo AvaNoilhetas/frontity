@@ -6,22 +6,41 @@ import Link from "./link";
  *
  * It renders the navigation links
  */
-const Nav = ({ state }) => (
-  <NavContainer>
-    {state.theme.menu.map(([name, link]) => {
-      // Check if the link matched the current page url
-      const isCurrentPage = state.router.link === link;
-      return (
-        <NavItem key={name}>
-          {/* If link url is the current page, add `aria-current` for a11y */}
-          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-            {name}
-          </Link>
-        </NavItem>
-      );
-    })}
-  </NavContainer>
-);
+const Nav = ({ state }) => {
+  const items = state.source.get(`/menu/${state.theme.menuUrl}/`).items;
+  // console.log('ITEMS:',items)
+  return (
+    <NavContainer>
+      {items.map(item => {
+        if (!item.child_items) {
+          return (
+            <NavItem key={item.ID}>
+              <Link link={item.url}>{item.title}</Link>
+            </NavItem>
+          );
+        } else {
+          const childItems = item.child_items;
+          return (
+            <NavItemWithChild key={item.ID}>
+              <NavItem>
+                <Link link={item.url}>{item.title}</Link>
+              </NavItem>
+              <ChildMenu>
+                {childItems.map(childItem => {
+                  return (
+                    <NavItem key={childItem.ID}>
+                      <Link link={childItem.url}>{childItem.title}</Link>
+                    </NavItem>
+                  );
+                })}
+              </ChildMenu>
+            </NavItemWithChild>
+          );
+        }
+      })}
+    </NavContainer>
+  );
+};
 
 export default connect(Nav);
 
@@ -43,7 +62,6 @@ const NavContainer = styled.nav`
 const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
-  color: #fff;
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
