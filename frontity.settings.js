@@ -1,9 +1,15 @@
+import { config } from "dotenv";
+
+// Launch dot-env.
+config();
+const API_URL = process.env.REACT_APP_API_URL;
+
 const settings = {
   name: "frontity",
   state: {
     frontity: {
       url: "https://test.frontity.org",
-      title: "Test Frontity Blog",
+      title: "Sarah Krespin",
       description: "WordPress installation for Frontity development"
     }
   },
@@ -30,7 +36,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "http://localhost:8000/",
+          url: API_URL,
           homepage: "home"
         }
       }

@@ -1,17 +1,16 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
-
+import Nav from "./nav";
 const Header = ({ state }) => {
   return (
     <>
-      {/* <Container>
+      <Container>
         <StyledLink link="/">
           <Title>{state.frontity.title}</Title>
         </StyledLink>
-        <Description>{state.frontity.description}</Description>
-        <MobileMenu />
+        {/* <MobileMenu /> */}
+        <Nav />
       </Container>
-      <Nav /> */}
     </>
   );
 };
@@ -20,19 +19,17 @@ const Header = ({ state }) => {
 export default connect(Header);
 
 const Container = styled.div`
-  width: 848px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 24px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  padding: 2em;
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 16px;
+const Title = styled.h1`
+  font-size: 38px;
+  margin-bottom: 46px;
+  font-weight: normal;
 `;
 
 const Description = styled.h4`

@@ -1,9 +1,9 @@
 import Switch from "@frontity/components/switch";
 import { connect, css, Global, Head, styled } from "frontity";
 import Header from "./header";
-import Home from "./home";
 import List from "./list";
 import Loading from "./loading";
+import Page from "./page";
 import PageError from "./page-error";
 import Post from "./post";
 import Title from "./title";
@@ -41,7 +41,7 @@ const Theme = ({ state }) => {
         <Switch>
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
-          <Home when={data.isPage} />
+          <Page when={data.isPage} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>
@@ -57,7 +57,8 @@ const globalStyles = css`
 
   body {
     margin: 0;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
   }
   a,
   a:visited {
@@ -76,9 +77,4 @@ const HeadContainer = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
 `;
