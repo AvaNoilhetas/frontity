@@ -18,13 +18,7 @@ const settings = {
       name: "@frontity/mars-theme",
       state: {
         theme: {
-          menu: [
-            ["Home", "/home"],
-            ["Nature", "/category/nature/"],
-            ["Travel", "/category/travel/"],
-            ["Japan", "/tag/japan/"],
-            ["About Us", "/about-us/"]
-          ],
+          menu: [],
           featured: {
             showOnList: false,
             showOnPost: false

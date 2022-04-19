@@ -15,7 +15,14 @@ const Nav = ({ state }) => {
         if (!item.child_items) {
           return (
             <NavItem key={item.ID}>
-              <Link link={item.url}>{item.title}</Link>
+              {item.title === "Contact" ? <br /> : null}
+              {item.title === "CV" ? (
+                <a href={item.url} target="_blank">
+                  {item.title}
+                </a>
+              ) : (
+                <Link link={item.url}>{item.title}</Link>
+              )}
             </NavItem>
           );
         } else {

@@ -1,5 +1,7 @@
 import { connect, styled } from "frontity";
 import { useEffect } from "react";
+import About from "./about";
+import Contact from "./contact";
 import Exposition from "./exposition";
 import Home from "./home";
 import Link from "./link";
@@ -48,7 +50,12 @@ const Page = ({ state, actions, libraries }) => {
   }, [actions.source]);
 
   return data.isReady ? (
-    <>{post.acf.type === "homepage" ? <Home /> : <Exposition />}</>
+    <>
+      {post.acf.type === "homepage" ? <Home /> : null}
+      {post.acf.type === "exposition" ? <Exposition /> : null}
+      {post.acf.type === "contact" ? <Contact /> : null}
+      {post.acf.type === "about" ? <About /> : null}
+    </>
   ) : null;
 };
 
