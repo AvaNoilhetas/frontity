@@ -26,7 +26,8 @@ const marsTheme = {
       featured: {
         showOnList: false,
         showOnPost: false
-      }
+      },
+      language: "fr"
     }
   },
 
@@ -44,6 +45,12 @@ const marsTheme = {
       },
       beforeSSR: async ({ state, actions }) => {
         await actions.source.fetch(`/menu/${state.theme.menuUrl}/`);
+      },
+      switchLanguageFR: async ({ state, actions }) => {
+        state.theme.language = "fr";
+      },
+      switchLanguageEN: async ({ state, actions }) => {
+        state.theme.language = "en";
       }
     }
   },

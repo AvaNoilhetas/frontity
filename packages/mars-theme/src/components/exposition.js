@@ -28,14 +28,22 @@ const Exposition = ({ state, actions, libraries }) => {
                     />
                   );
                 }
-                if (item[0] === "text_fr" && item[1] !== "") {
+                if (
+                  item[0] === "text_fr" &&
+                  item[1] !== "" &&
+                  state.theme.language === "fr"
+                ) {
                   return (
                     <div key={i} className="images__caption">
                       {item[1]}
                     </div>
                   );
                 }
-                if (item[0] === "text_en" && item[1] !== "") {
+                if (
+                  item[0] === "text_en" &&
+                  item[1] !== "" &&
+                  state.theme.language === "en"
+                ) {
                   return (
                     <div key={i} className="images__caption">
                       {item[1]}

@@ -1,4 +1,4 @@
-import { connect, styled } from "frontity";
+import { connect, styled, useConnect } from "frontity";
 import Link from "./link";
 
 /**
@@ -7,8 +7,22 @@ import Link from "./link";
  * It renders the navigation links
  */
 const Nav = ({ state }) => {
+  const { actions } = useConnect();
+
   const items = state.source.get(`/menu/${state.theme.menuUrl}/`).items;
-  // console.log('ITEMS:',items)
+
+  const clickFR = () => {
+    if (state.theme.language) {
+      actions.theme.switchLanguageFR();
+    }
+  };
+
+  const clickEN = () => {
+    if (state.theme.language) {
+      actions.theme.switchLanguageEN();
+    }
+  };
+
   return (
     <NavContainer>
       {items.map(item => {
@@ -45,6 +59,10 @@ const Nav = ({ state }) => {
           );
         }
       })}
+      <div>
+        <button onClick={clickFR}>FR</button>
+        <button onClick={clickEN}>EN</button>
+      </div>
     </NavContainer>
   );
 };
