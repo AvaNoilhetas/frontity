@@ -29,7 +29,7 @@ const Nav = ({ state }) => {
         if (!item.child_items) {
           return (
             <NavItem key={item.ID}>
-              {item.title === "Contact" ? <br /> : null}
+              {item.title === "About" ? <br /> : null}
               {item.title === "CV" ? (
                 <a href={item.url} target="_blank">
                   {item.title}
@@ -59,9 +59,11 @@ const Nav = ({ state }) => {
           );
         }
       })}
-      <div>
-        <button onClick={clickFR}>FR</button>
-        <button onClick={clickEN}>EN</button>
+      <div className="language">
+        <br />
+        <a onClick={clickFR}>FR</a>
+        &nbsp;/&nbsp;
+        <a onClick={clickEN}>EN</a>
       </div>
     </NavContainer>
   );
@@ -74,9 +76,14 @@ const NavContainer = styled.nav`
   max-width: 100%;
   box-sizing: border-box;
   overflow-x: auto;
+  padding: 0 2rem 2rem 2rem;
 
   @media screen and (max-width: 560px) {
     display: none;
+  }
+
+  .language {
+    font-size: 14px;
   }
 `;
 

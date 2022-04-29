@@ -23,8 +23,13 @@ const Home = ({ state, actions, libraries }) => {
 export default connect(Home);
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100vh;
   background-size: cover;
   padding: 4em;
+
+  @media screen and (max-width: 992px) {
+    background-position: center;
+    padding: 0em 1em;
+  }
 `;

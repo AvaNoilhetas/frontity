@@ -1,6 +1,8 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
+import MobileMenu from "./menu";
 import Nav from "./nav";
+
 const Header = ({ state }) => {
   return (
     <>
@@ -8,7 +10,7 @@ const Header = ({ state }) => {
         <StyledLink link="/">
           <Title>{state.frontity.title}</Title>
         </StyledLink>
-        {/* <MobileMenu /> */}
+        <MobileMenu />
         <Nav />
       </Container>
     </>
@@ -23,13 +25,30 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: auto;
-  padding: 2em;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 38px;
-  margin-bottom: 46px;
   font-weight: normal;
+  margin-bottom: 46px;
+  margin-top: 0;
+  padding: 2rem 2rem 0 2rem;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 32px;
+  }
+
+  @media screen and (max-width: 992px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 560px) {
+    padding: 2rem 1rem 0 1rem;
+  }
 `;
 
 const Description = styled.h4`
