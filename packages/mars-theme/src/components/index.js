@@ -99,7 +99,7 @@ const SiteContainer = styled.div`
 `;
 
 const Main = styled.div`
-  padding: 2rem 0rem 2rem 2rem;
+  padding: 2.3rem 0rem 2rem 2rem;
   width: 66%;
   max-width: 670px;
 
