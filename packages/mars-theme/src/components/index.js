@@ -21,7 +21,7 @@ const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
 
   return (
-    <>
+    <Container>
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
@@ -32,21 +32,23 @@ const Theme = ({ state }) => {
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
       <Global styles={globalStyles} />
       {/* Add the header of the site. */}
-      <HeadContainer>
-        <Header />
-      </HeadContainer>
-      {/* Add the main section. It renders a different component depending
+      <SiteContainer>
+        <HeadContainer>
+          <Header />
+        </HeadContainer>
+        {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main>
-        <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Page when={data.isPage} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} />
-        </Switch>
-      </Main>
-    </>
+        <Main>
+          <Switch>
+            <Loading when={data.isFetching} />
+            <List when={data.isArchive} />
+            <Page when={data.isPage} />
+            <Post when={data.isPostType} />
+            <PageError when={data.isError} />
+          </Switch>
+        </Main>
+      </SiteContainer>
+    </Container>
   );
 };
 
@@ -65,16 +67,49 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+  p {
+    margin-top: 0;
+  }
 `;
 
+const Container = styled.div``;
+
 const HeadContainer = styled.div`
+  width: 33%;
+
+  @media screen and (max-width: 992px) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: 560px) {
+    width: 100%;
+  }
+`;
+
+const SiteContainer = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1f38c5;
+  justify-content: between;
+  max-width: 1250px;
+  margin: auto;
+
+  @media screen and (max-width: 560px) {
+    flex-direction: column;
+  }
 `;
 
 const Main = styled.div`
-  display: flex;
-  justify-content: center;
+  padding: 2rem 0rem 2rem 2rem;
+  width: 66%;
+  max-width: 670px;
+
+  @media screen and (max-width: 992px) {
+    padding: 2rem;
+    width: 60%;
+  }
+
+  @media screen and (max-width: 560px) {
+    padding: 0rem 1.5rem 0 1.5rem;
+    width: auto;
+  }
 `;

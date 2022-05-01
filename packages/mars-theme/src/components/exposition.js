@@ -62,18 +62,7 @@ const Exposition = ({ state, actions, libraries }) => {
 export default connect(Exposition);
 
 const Content = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: end;
-
   .images {
-    &__container {
-      margin-top: 50px;
-      flex: 0 0 auto;
-      width: 66.66666667%;
-    }
-
     &__group {
       position: relative;
       margin-bottom: 30px;

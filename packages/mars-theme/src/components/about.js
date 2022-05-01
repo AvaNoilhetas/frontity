@@ -13,11 +13,21 @@ const About = ({ state, actions, libraries }) => {
 
   return data.isReady ? (
     <Content>
-      <div dangerouslySetInnerHTML={{ __html: post.acf.text }}></div>
+      {state.theme.language === "fr" ? (
+        <div dangerouslySetInnerHTML={{ __html: post.acf.text_fr }}></div>
+      ) : (
+        <div dangerouslySetInnerHTML={{ __html: post.acf.text_en }}></div>
+      )}
     </Content>
   ) : null;
 };
 
 export default connect(About);
 
-const Content = styled.div``;
+const Content = styled.div`
+  text-align: justify;
+  font-size: 12px;
+  font-family: "Courier";
+  color: #212529;
+  line-height: 1.6;
+`;

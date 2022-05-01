@@ -35,7 +35,16 @@ const Nav = ({ state }) => {
                   {item.title}
                 </a>
               ) : (
-                <Link link={item.url}>{item.title}</Link>
+                <Link
+                  className={
+                    state.source.url + state.router.link === item.url
+                      ? "text-underline"
+                      : ""
+                  }
+                  link={item.url}
+                >
+                  {item.title}
+                </Link>
               )}
             </NavItem>
           );
@@ -61,9 +70,19 @@ const Nav = ({ state }) => {
       })}
       <div className="language">
         <br />
-        <a onClick={clickFR}>FR</a>
+        <a
+          className={state.theme.language === "fr" ? "text-underline" : ""}
+          onClick={clickFR}
+        >
+          FR
+        </a>
         &nbsp;/&nbsp;
-        <a onClick={clickEN}>EN</a>
+        <a
+          className={state.theme.language === "en" ? "text-underline" : ""}
+          onClick={clickEN}
+        >
+          EN
+        </a>
       </div>
     </NavContainer>
   );
@@ -78,12 +97,21 @@ const NavContainer = styled.nav`
   overflow-x: auto;
   padding: 0 2rem 2rem 2rem;
 
+  @media screen and (max-width: 992px) {
+    padding: 0 1rem 2rem 1rem;
+  }
+
   @media screen and (max-width: 560px) {
     display: none;
   }
 
   .language {
     font-size: 14px;
+    cursor: pointer;
+  }
+
+  .text-underline {
+    text-decoration: underline;
   }
 `;
 

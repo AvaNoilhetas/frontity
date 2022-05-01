@@ -1,6 +1,5 @@
 import { connect, styled, useConnect } from "frontity";
 import Link from "./link";
-
 /**
  * The modal containing the mobile menu items.
  *
@@ -8,20 +7,63 @@ import Link from "./link";
  * @returns A React component.
  */
 const MenuModal = ({ ...props }) => {
-  const { state } = useConnect();
-  const { menu } = state.theme;
+  const { state, actions } = useConnect();
 
   const items = state.source.get(`/menu/${state.theme.menuUrl}/`).items;
+
+  const clickFR = () => {
+    if (state.theme.language) {
+      actions.theme.switchLanguageFR();
+    }
+  };
+
+  const clickEN = () => {
+    if (state.theme.language) {
+      actions.theme.switchLanguageEN();
+    }
+  };
 
   return (
     <div {...props}>
       {state.frontity.mode !== "amp" && <MenuOverlay />}
       <MenuContent as="nav">
         {items.map(item => (
-          <MenuLink key={item.ID} link={item.url}>
-            {item.title}
-          </MenuLink>
+          <>
+            {item.title === "About" ? (
+              <>
+                <br />
+                <br />
+              </>
+            ) : null}
+            <MenuLink
+              key={item.ID}
+              link={item.url}
+              className={
+                state.source.url + state.router.link === item.url
+                  ? "text-underline"
+                  : ""
+              }
+            >
+              {item.title}
+            </MenuLink>
+          </>
         ))}
+        <div className="language">
+          <br />
+          <a
+            className={state.theme.language === "fr" ? "text-underline" : ""}
+            onClick={clickFR}
+          >
+            FR
+          </a>
+          &nbsp;/&nbsp;
+          <a
+            className={state.theme.language === "en" ? "text-underline" : ""}
+            onClick={clickEN}
+          >
+            EN
+          </a>
+        </div>
       </MenuContent>
     </div>
   );
@@ -41,6 +83,17 @@ const MenuOverlay = styled.div`
 const MenuContent = styled.div`
   z-index: 3;
   position: relative;
+
+  .language {
+    font-size: 16px;
+    text-align: left;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+  }
+
+  .text-underline {
+    text-decoration: underline;
+  }
 `;
 
 const MenuLink = styled(Link)`

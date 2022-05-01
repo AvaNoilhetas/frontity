@@ -20,20 +20,11 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-const Container = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-`;
+const Container = styled.div``;
 
 const Title = styled.h1`
   font-size: 38px;
-  font-weight: normal;
+  font-weight: 700;
   margin-bottom: 46px;
   margin-top: 0;
   padding: 2rem 2rem 0 2rem;
@@ -43,11 +34,13 @@ const Title = styled.h1`
   }
 
   @media screen and (max-width: 992px) {
+    padding: 2rem 1rem 0 1rem;
     font-size: 28px;
   }
 
   @media screen and (max-width: 560px) {
-    padding: 2rem 1rem 0 1rem;
+    padding: 2rem 1.5rem 0 1.5rem;
+    margin-bottom: 1rem;
   }
 `;
 
