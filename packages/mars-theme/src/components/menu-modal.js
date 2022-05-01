@@ -35,17 +35,23 @@ const MenuModal = ({ ...props }) => {
                 <br />
               </>
             ) : null}
-            <MenuLink
-              key={item.ID}
-              link={item.url}
-              className={
-                state.source.url + state.router.link === item.url
-                  ? "text-underline"
-                  : ""
-              }
-            >
-              {item.title}
-            </MenuLink>
+            {item.title === "CV" ? (
+              <a className="nav__link" href={item.url} target="_blank">
+                {item.title}
+              </a>
+            ) : (
+              <MenuLink
+                key={item.ID}
+                link={item.url}
+                className={
+                  state.source.url + state.router.link === item.url
+                    ? "text-underline nav__link"
+                    : "nav__link"
+                }
+              >
+                {item.title}
+              </MenuLink>
+            )}
           </>
         ))}
         <div className="language">
@@ -94,23 +100,25 @@ const MenuContent = styled.div`
   .text-underline {
     text-decoration: underline;
   }
+
+  .nav__link {
+    width: 100%;
+    display: inline-block;
+    outline: 0;
+    font-size: 16px;
+    text-align: left;
+    padding: 0.5rem 2rem;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
 `;
 
 const MenuLink = styled(Link)`
-  width: 100%;
-  display: inline-block;
-  outline: 0;
-  font-size: 16px;
-  text-align: left;
-  padding: 0.5rem 2rem;
-
-  &:hover,
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
   /* styles for active link */
   &[aria-current="page"] {
-    color: yellow;
     font-weight: bold;
   }
 `;

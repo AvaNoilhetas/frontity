@@ -26,10 +26,12 @@ const Container = styled.div`
   min-width: 100%;
   min-height: 100vh;
   background-size: cover;
-  padding: 4em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 
   @media screen and (max-width: 992px) {
     background-position: center;
-    padding: 0em 1em;
   }
 `;
