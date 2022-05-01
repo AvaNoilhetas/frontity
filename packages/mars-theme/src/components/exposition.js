@@ -63,6 +63,10 @@ export default connect(Exposition);
 
 const Content = styled.div`
   .images {
+    &__image {
+      width: 100%;
+    }
+
     &__group {
       position: relative;
       margin-bottom: 30px;
@@ -73,7 +77,6 @@ const Content = styled.div`
     }
 
     &__caption {
-      max-width: 670px;
       text-align: justify;
       font-size: 12px;
       font-family: "Courier";
@@ -83,7 +86,7 @@ const Content = styled.div`
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
+      max-width: 100%;
       background-color: #dedee0;
     }
 
