@@ -1,4 +1,4 @@
-import { styled, keyframes, css } from "frontity";
+import { css, keyframes, styled } from "frontity";
 
 const scale = keyframes`
   0% {transform: scaley(1.0)}
@@ -20,11 +20,11 @@ const Loading = () => (
 
 export default Loading;
 
-const bar = (index) => css`
-  background-color: rgba(12, 17, 43, 0.3);
+const bar = index => css`
+  background-color: #494e61;
   width: 4px;
-  height: 24px;
-  margin: 3px;
+  height: 60px;
+  margin: 10px;
   border-radius: 0;
   display: inline-block;
   animation: ${scale} 1s ${index * 0.1}s infinite
@@ -33,7 +33,7 @@ const bar = (index) => css`
 `;
 
 const Container = styled.div`
-  width: 800px;
+  width: 100%;
   margin: 0;
   padding: 24px;
   display: flex;
@@ -41,6 +41,6 @@ const Container = styled.div`
   align-items: center;
 
   & > * {
-    margin-top: 24px;
+    margin-top: 25vh;
   }
 `;
