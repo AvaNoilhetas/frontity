@@ -55,6 +55,13 @@ const Exposition = ({ state, actions, libraries }) => {
           );
         })}
       </div>
+      <div className="images__description">
+        {state.theme.language === "fr" ? (
+          <div dangerouslySetInnerHTML={{ __html: post.acf.text_fr }}></div>
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: post.acf.text_en }}></div>
+        )}
+      </div>
     </Content>
   ) : null;
 };
