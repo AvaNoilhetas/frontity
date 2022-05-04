@@ -56,7 +56,9 @@ export default connect(Theme);
 
 const globalStyles = css`
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
-
+  * {
+    box-sizing: border-box;
+  }
   body {
     margin: 0;
     font-family: "Arial", sans-serif;

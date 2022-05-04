@@ -94,6 +94,7 @@ const Content = styled.div`
       bottom: 0;
       left: 0;
       max-width: 100%;
+      width: 100%;
       background-color: #dedee0;
     }
 
