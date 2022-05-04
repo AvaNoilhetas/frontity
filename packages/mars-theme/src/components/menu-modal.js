@@ -49,7 +49,9 @@ const MenuModal = ({ ...props }) => {
                     : "nav__link"
                 }
               >
-                {item.title}
+                {item.title === "about" && state.theme.language === "fr"
+                  ? "A propos"
+                  : item.title}
               </MenuLink>
             )}
           </>
