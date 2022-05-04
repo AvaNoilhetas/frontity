@@ -49,7 +49,7 @@ const MenuModal = ({ ...props }) => {
                     : "nav__link"
                 }
               >
-                {item.title === "about" && state.theme.language === "fr"
+                {item.title === "About" && state.theme.language === "fr"
                   ? "A propos"
                   : item.title}
               </MenuLink>
