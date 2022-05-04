@@ -43,7 +43,9 @@ const Nav = ({ state }) => {
                   }
                   link={item.url}
                 >
-                  {item.title}
+                  {item.title === "About" && state.theme.language === "fr"
+                    ? "A propos"
+                    : item.title}
                 </Link>
               )}
             </NavItem>
