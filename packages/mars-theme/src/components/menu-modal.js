@@ -104,8 +104,8 @@ const MenuContent = styled.div`
   }
 
   .nav__link {
-    width: 100%;
-    display: inline-block;
+    width: auto;
+    display: block;
     outline: 0;
     font-size: 16px;
     text-align: left;
