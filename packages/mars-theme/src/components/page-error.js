@@ -71,7 +71,7 @@ export default connect(Page404);
 const Container = styled.div`
   width: 100%;
   margin: 0;
-  padding: 0 24px;
+  padding: 24px 0;
   text-align: center;
   font-family: "Courier";
   color: #212529;
