@@ -39,7 +39,7 @@ const Title = styled.h1`
   }
 
   @media screen and (max-width: 560px) {
-    padding: 2rem 1.5rem 0 1.5rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     margin-bottom: 1rem;
   }
 `;
