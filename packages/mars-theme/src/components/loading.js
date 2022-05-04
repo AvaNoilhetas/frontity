@@ -35,7 +35,7 @@ const bar = index => css`
 const Container = styled.div`
   width: 100%;
   margin: 0;
-  padding: 24px;
+  padding: 0 24px;
   display: flex;
   justify-content: center;
   align-items: center;

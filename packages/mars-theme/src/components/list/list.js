@@ -1,4 +1,4 @@
-import { connect, styled, decode } from "frontity";
+import { connect, decode, styled } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
 
@@ -39,7 +39,7 @@ export default connect(List);
 const Container = styled.section`
   width: 800px;
   margin: 0;
-  padding: 24px;
+  padding: 0 24px;
   list-style: none;
 `;
 
