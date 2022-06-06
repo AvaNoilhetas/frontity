@@ -10,7 +10,8 @@ const settings = {
     frontity: {
       url: "https://test.frontity.org",
       title: "Sarah Krespin",
-      description: "WordPress installation for Frontity development"
+      description:
+        "Sarah Krespin est née en 1993 à Londres. Elle vit actuellement à Paris et est titulaire d’un Master en recherche, création et plasticités contemporaines à l’École des Arts de la Sorbonne."
     }
   },
   packages: [
