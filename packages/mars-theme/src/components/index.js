@@ -89,11 +89,12 @@ const HeadContainer = styled.div`
 `;
 
 const SiteContainer = styled.div`
-  width: 100%;
   display: flex;
   justify-content: between;
-  max-width: 1250px;
+  max-width: 1300px;
+  width: 100%;
   margin: auto;
+  position: relative;
 
   @media screen and (max-width: 560px) {
     flex-direction: column;

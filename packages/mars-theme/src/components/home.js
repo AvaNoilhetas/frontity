@@ -23,7 +23,8 @@ const Home = ({ state, actions, libraries }) => {
 export default connect(Home);
 
 const Container = styled.div`
-  min-width: 100%;
+  max-width: 1300px;
+  width: 100%;
   min-height: 100vh;
   background-size: cover;
   position: absolute;
