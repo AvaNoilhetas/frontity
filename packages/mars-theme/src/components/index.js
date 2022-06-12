@@ -85,10 +85,10 @@ const HeadContainer = styled.div`
 
   @media screen and (max-width: 560px) {
     width: 100%;
-    position: sticky;
-    top: 0;
     background-color: white;
     z-index: 100;
+    position: sticky;
+    top: 0;
   }
 `;
 

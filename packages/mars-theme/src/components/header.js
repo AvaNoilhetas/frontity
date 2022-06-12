@@ -20,7 +20,10 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: sticky;
+  top: 0;
+`;
 
 const Title = styled.h1`
   font-size: 38px;
