@@ -23,7 +23,7 @@ const Home = ({ state, actions, libraries }) => {
 export default connect(Home);
 
 const Container = styled.div`
-  max-width: 1300px;
+  max-width: 100%;
   width: 100%;
   min-height: 100vh;
   background-size: cover;

@@ -9,6 +9,7 @@ import Post from "./post";
 import Title from "./title";
 
 /**
+ * blooming-turtle-39j50ofousvilvjehu9wyjxt.herokudns.com
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  *
@@ -95,7 +96,7 @@ const HeadContainer = styled.div`
 const SiteContainer = styled.div`
   display: flex;
   justify-content: between;
-  max-width: 1300px;
+  max-width: 100%;
   width: 100%;
   margin: auto;
   position: relative;
