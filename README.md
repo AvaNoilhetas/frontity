@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Frontity](https://frontity.org/).
 
-#### Table of Contents
+### Table of Contents
 
 - [Launch a development server](#launch-a-development-server)
 - [Create your custom theme](#create-your-custom-theme)
