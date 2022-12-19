@@ -27,9 +27,9 @@ const MenuModal = ({ ...props }) => {
     <div {...props}>
       {state.frontity.mode !== "amp" && <MenuOverlay />}
       <MenuContent as="nav">
-        {items.map(item => (
+        {items.map((item) => (
           <>
-            {item.title === "About" ? (
+            {item.slug === "about" || item.slug === "vue-dexposition" ? (
               <>
                 <br />
                 <br />
