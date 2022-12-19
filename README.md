@@ -1,4 +1,11 @@
+<h1 align="center">⚛️ FRONTITY ⚛️</h1>
+
+<img width="1272" alt="Capture d’écran 2022-12-15 à 14 26 29" src="https://user-images.githubusercontent.com/15266589/207870658-6a49177d-3aa8-49f7-b55a-ad23d729397f.png">
+<p align="center"><a href="https://www.sarahkrespin.com/">See the project</a></p>
+
+
 # frontity
+
 
 This project was bootstrapped with [Frontity](https://frontity.org/).
 
