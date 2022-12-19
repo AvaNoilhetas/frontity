@@ -25,11 +25,13 @@ const Nav = ({ state }) => {
 
   return (
     <NavContainer>
-      {items.map(item => {
+      {items.map((item) => {
         if (!item.child_items) {
           return (
             <NavItem key={item.ID}>
-              {item.title === "About" ? <br /> : null}
+              {item.slug === "about" || item.slug === "vue-dexposition" ? (
+                <br />
+              ) : null}
               {item.title === "CV" ? (
                 <a href={item.url} target="_blank">
                   {item.title}
@@ -58,7 +60,7 @@ const Nav = ({ state }) => {
                 <Link link={item.url}>{item.title}</Link>
               </NavItem>
               <ChildMenu>
-                {childItems.map(childItem => {
+                {childItems.map((childItem) => {
                   return (
                     <NavItem key={childItem.ID}>
                       <Link link={childItem.url}>{childItem.title}</Link>
