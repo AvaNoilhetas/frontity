@@ -12,9 +12,8 @@
   },
   "scripts": {
     "build": "frontity build",
-    "build-serve": "npm run build && npm run serve",
     "dev": "frontity dev",
-    "serve": "frontity serve &",
+    "serve": "frontity serve",
     "start": "frontity serve --port $PORT"
   },
   "prettier": {},
