@@ -29,9 +29,8 @@ const MenuModal = ({ ...props }) => {
       <MenuContent as="nav">
         {items.map((item) => (
           <>
-            {item.slug === "about" || item.slug === "vue-dexposition" ? (
+            {item.slug === "textes" ? (
               <>
-                <br />
                 <br />
               </>
             ) : null}
